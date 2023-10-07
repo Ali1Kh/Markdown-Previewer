@@ -1,6 +1,7 @@
 import "./App.css";
 import $ from "jquery";
 import { marked } from "marked";
+import { useEffect } from "react";
 
 function App() {
   marked.setOptions({
@@ -9,6 +10,10 @@ function App() {
   function typing() {
     $("#previewer").html(marked($("#editor").val()));
   }
+  useEffect(()=>{
+    $("#editor").text("# Type Here... ");
+    typing();
+  },[])
   return (
     <>
       <main className="min-vh-100" style={{ backgroundColor: "#87b4b4" }}>
